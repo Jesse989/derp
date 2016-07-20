@@ -1,0 +1,25 @@
+
+<h2 ng-show="authenticated">{{current_user}} says: </h2>
+        <br>
+        <form ng-Submit="post()">
+            <div ng-show="authenticated" class="input-group input-group-lg">
+                <textarea class="form-control" required maxLength='200' rows="3" type="text" placeholder="Say something..." ng-model="newPost.text"></textarea>
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    Derp!
+                </button>
+                </span>
+            </div>
+            <br>
+
+        </form>
+
+    <div id="post-stream">
+        <h2>derps:</h2>
+        <div ng-repeat="post in posts | orderBy: '-created_at'" ng-class-odd="'odd'" ng-class-even="'even'">
+            <div class="well well-sm">
+                <h4>  "{{post.text}}" </h4><p> -{{ post.created_by}} @ {{post.created_at | date: "h:mma 'on' MM/dd/yyyy"}} </p>
+            </div>
+        </div>
+    </div>
+

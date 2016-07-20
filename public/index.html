@@ -1,0 +1,64 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Derp!</title>
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!--Angular -->
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-mocks.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--custom css-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <!--Angular public-->
+    <script src="javascripts/chirpApp.js"></script>
+    <!--Bootstrap js-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="chirpApp">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <i class="glyphicon glyphicon-asterisk"></i> </a>
+            <a class="navbar-brand" href="#/">
+                <span>
+                <img id="birdLogo" src="http://icons.iconarchive.com/icons/martin-berube/flat-animal/256/bird-icon.png">
+                <h3 id="chirp">Derp!</h3>
+                </span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-show="authenticated"><a href="#/">{{current_user}}</a></li>
+                <li ng-show="authenticated"><a ng-click="signout()" href="#/">Signout</a></li>
+                <li ng-hide="authenticated"><a href="#/login">Log In</a></li>
+                <li ng-hide="authenticated"><a href="#/register">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="content"  class="container-fluid text-center">
+    <div ng-view class="col-sm-offset-1 col-sm-10 col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 text-center">
+
+    <!--content-->
+
+    </div>
+</div>
+<script>
+    //Hamburger menu toggle
+    $(".navbar-nav li a").click(function (event) {
+        // check if window is small enough so dropdown is created
+        var toggle = $(".navbar-toggle").is(":visible");
+        if (toggle) {
+            $(".navbar-collapse").collapse('hide');
+        }
+    });
+</script>
+</body>
+</html>
